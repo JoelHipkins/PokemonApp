@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+<body>
+    <h1><%= trainer.Name %></h1>
+    <a href="/regions/<%= trainer.Region %>">
+        <h3><%= trainer.Region %></h3>
+    </a>
+    <div>
+        <ul>
+            <% pokemons.forEach((pokemon) => { %>
+                <li><a href="/oneMon/<%= pokemon.Name %>"><%= pokemon.Name %></a></li>
+            <% }) %>
+        </ul>
+    </div>
+    <a href="/allTrainers">Back to the trainer list</a>
+</body>
+</html>

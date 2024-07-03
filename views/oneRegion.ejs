@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+<body>
+    <h1><%= region %> Region Trainers</h1>
+    <a href="/allTrainers">Back to all trainers.</a>
+    <ul>
+        <% trainers.forEach((trainer) => { %>
+            <li>
+                <a href="/oneTrainer/<%= trainer._id %>"><%= trainer.Name %></a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+<body>
+    <h1>Welcome to the Pokemon App!</h1>
+    <h2><%= pokemon.PokedexNo %></h2>
+    <h2><%= pokemon.Name %></h2>
+    <h3><%= pokemon.Type %></h3>
+    <ul>
+        <% pokemon.Moves.forEach((move) => { %>
+            <li><%= move %></li>
+        <% }) %>
+    </ul>
+    
+    <form action="/api/trainers/catch/<%= pokemon._id %>?_method=PUT" method="post">
+        <select name="trainerId">
+            <% trainers.forEach((trainer) => { %>
+                <option value="<%= trainer._id %>"><%= trainer.Name %></option>
+            <% }) %>
+        </select>
+        
+        <input type="submit" value="Catch <%= pokemon.Name %>!">
+    </form>
+    <br><br>
+    <div>
+        <a href="/updateMon/<%= pokemon.Name %>">Edit this pokemon.</a>
+    </div>
+    <br><br>
+
+    <form action="/api/pokemon/<%= pokemon.Name %>?_method=DELETE" method="POST">
+        <input type="submit" name="_method" value="DELETE THIS POKEMON">
+    </form>
+    
+</body>
+</html>
